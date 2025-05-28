@@ -1,41 +1,49 @@
 package login;
 
+import java.io.IOException;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import jakarta.servlet.http.HttpSession;
+
+import jp.co.aforce.bean.User;
+import jp.co.aforce.dao.UserDAO;
 
 /**
  * Servlet implementation class login
  */
-@WebServlet("/login")
+@WebServlet(urlPatterns = {"/views/login"})
 public class login extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public login() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
+		String id = request.getParameter("id");
+		String password = request.getParameter("password");
+		UserDAO userDAO = new UserDAO();
+		Boolean flag = false;
+		try {
+			flag = userDAO.login(id, password);
+		} catch (Exception e) {
+			System.out.println("login");
+			e.printStackTrace();
+		}
+		if (flag) {
+			try {
+				User user = new UserDAO().getUserData(id);
+				session.setAttribute("user", user);
+				response.sendRedirect("user-menu.jsp");
+			} catch (Exception e) {
+				System.out.println("user");
+				e.printStackTrace();
+				response.sendRedirect("login-error.jsp");
+			}
+		}else {
+			response.sendRedirect("login-error.jsp");
+		}
 	}
 
 }
