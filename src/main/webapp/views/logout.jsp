@@ -7,15 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>ようこそ${user.id }!</h1>
+<p>ログアウトしました</p>
 <form action="login-in" method="get">
-  <button type="submit">修正</button>
-</form>
-<form action="" method="get">
-  <button type="submit">削除</button>
-</form>
-<form action="logout.jsp" method="get">
-  <button type="submit">ログアウト</button>
+  <button type="submit">ログインページ</button>
 </form>
 </body>
 </html>

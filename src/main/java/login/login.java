@@ -15,7 +15,7 @@ import jp.co.aforce.dao.UserDAO;
 /**
  * Servlet implementation class login
  */
-@WebServlet(urlPatterns = {"/views/login"})
+@WebServlet(urlPatterns = { "/views/login" })
 public class login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -33,8 +33,10 @@ public class login extends HttpServlet {
 		}
 		if (flag) {
 			try {
+				Boolean isLogin = true;
 				User user = new UserDAO().getUserData(id);
 				session.setAttribute("user", user);
+				session.setAttribute("login", isLogin);
 				response.sendRedirect("user-menu.jsp");
 			} catch (Exception e) {
 				System.out.println("user");
@@ -47,3 +49,4 @@ public class login extends HttpServlet {
 	}
 
 }
+

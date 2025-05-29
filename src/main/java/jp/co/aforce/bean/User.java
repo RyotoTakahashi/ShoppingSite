@@ -40,6 +40,16 @@ public class User implements Serializable {
 		this.mailAddress = mailAddress;
 	}
 
-	
+	@Override
+	public boolean equals(Object obj) {
+	        if (this == obj) return true;
+	        if (!(obj instanceof User)) return false;
+	        User Users = (User) obj;
+	        return this.getId()==Users.getId()&&
+	        		this.getLastName()==Users.getLastName()&&
+	        		this.getFirstName()==Users.getFirstName()&&
+	        		this.getAddress()==Users.getAddress()&&
+	        		this.getMailAddress()==Users.getMailAddress();
+	}
 
 }
