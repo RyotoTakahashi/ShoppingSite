@@ -1,4 +1,4 @@
-package login;
+package jp.co.aforce.login;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

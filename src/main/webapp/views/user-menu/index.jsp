@@ -4,17 +4,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>user-menu/index.jsp</title>
 </head>
 <body>
 <h1>ようこそ${user.id }!</h1>
-<form action="login-in" method="get">
+<form action="another.jsp" method="get">
   <button type="submit">修正</button>
 </form>
 <form action="" method="get">
   <button type="submit">削除</button>
 </form>
-<form action="logout.jsp" method="get">
+<form action="../logout" method="get">
   <button type="submit">ログアウト</button>
 </form>
 </body>

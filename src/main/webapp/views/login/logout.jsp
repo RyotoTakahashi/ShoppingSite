@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>logout.jsp</title>
 </head>
 <body>
 <p>ログアウトしました</p>
-<form action="login-in" method="get">
+<form action="login-in.jsp" method="get">
   <button type="submit">ログインページ</button>
 </form>
 </body>
