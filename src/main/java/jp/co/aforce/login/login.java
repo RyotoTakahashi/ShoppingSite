@@ -51,9 +51,9 @@ public class login extends HttpServlet {
 			}
 		} else {
 			request.setAttribute("id", id);
-		      request.setAttribute("password", password);
-		      RequestDispatcher dispatcher = request.getRequestDispatcher("member/join.jsp");
-		      dispatcher.forward(request, response);
+			request.setAttribute("password", password);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("member/join.jsp");
+			dispatcher.forward(request, response);
 		}
 	}
 }

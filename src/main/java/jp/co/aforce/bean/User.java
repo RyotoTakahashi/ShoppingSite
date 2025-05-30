@@ -58,11 +58,11 @@ public class User implements Serializable {
 		if (!(obj instanceof User))
 			return false;
 		User Users = (User) obj;
-		return this.getId() == Users.getId() &&
-				this.getLastName() == Users.getLastName() &&
-				this.getFirstName() == Users.getFirstName() &&
-				this.getAddress() == Users.getAddress() &&
-				this.getMailAddress() == Users.getMailAddress();
+		return this.getId().equals(Users.getId()) &&
+				this.getLastName().equals(Users.getLastName()) &&
+				this.getFirstName().equals(Users.getFirstName()) &&
+				this.getAddress().equals(Users.getAddress()) &&
+				this.getMailAddress().equals(Users.getMailAddress());
 	}
 
 }
