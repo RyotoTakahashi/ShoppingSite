@@ -21,13 +21,13 @@ public class SessionCheck extends HttpServlet {
 			Login = isLogin.isValid(request, response);
 			System.out.println(Login);
 			if (Login) {
-				response.sendRedirect("user-menu.jsp");
+				request.getRequestDispatcher("user-menu.jsp").forward(request, response);;
 			}
 		} catch (Exception e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
-		response.sendRedirect("login");
+		request.getRequestDispatcher("login").forward(request, response);;
 	}
 
 	/**

@@ -2,7 +2,6 @@ package jp.co.aforce.login;
 
 import java.io.IOException;
 
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -40,11 +39,11 @@ public class login extends HttpServlet {
 					User user = new UserDAO().getUserData(id);
 					session.setAttribute("user", user);
 					session.setAttribute("login", isLogin);
-					response.sendRedirect("user-menu");
+					request.getRequestDispatcher("user-menu").forward(request, response);;
 				} catch (Exception e) {
 					System.out.println("user");
 					e.printStackTrace();
-					response.sendRedirect("login/login-error.jsp");
+					request.getRequestDispatcher("login/login-error.jsp").forward(request, response);
 				}
 			} else {
 				response.sendRedirect("login/login-error.jsp");
@@ -52,8 +51,8 @@ public class login extends HttpServlet {
 		} else {
 			request.setAttribute("id", id);
 			request.setAttribute("password", password);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("member/join.jsp");
-			dispatcher.forward(request, response);
+			request.getRequestDispatcher("member/join.jsp").forward(request, response);
+			
 		}
 	}
 }
