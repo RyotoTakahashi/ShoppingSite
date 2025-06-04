@@ -13,7 +13,7 @@
 <p>ID:<input type="text" name="id"><br>
 Password:<input type="password" name="password"></p>
 <button type = "submit" name="action" value="login">ログイン</button>
-<button type = "submit" name="action" value="registration" >新規会員登録</button>
+<button type = "submit" name="action" value="registtration" >新規会員登録</button>
 </form>
 </body>
 </html>

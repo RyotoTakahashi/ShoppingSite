@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,34 +7,25 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>新規会員登録</h1>
-	<form action="/ShoppingSite/views/member/check" method="post">
-		<div class="id">
-			<label for="id">ID:</label> <input type="text" name="id"
-				value="${not empty id ? id : ''}"required>
-		</div>
-		<div class="password">
-			<label for="password">パスワード:</label> <input type="password"
-				name="password" value="${not empty password ? password : ''}" required>
-		</div>
+<h1>会員情報編集画面</h1>
+<form action="/ShoppingSite/views/user-menu/fix" method="post">
 		<div class="firstname">
 			<label for="firstname">姓:</label> <input type="text" name="firstname"
-				value="${not empty firstname ? firstname : ''}" required>
+				value="${user.firstName }" required>
 		</div>
 		<div class="lastname">
 			<label for="lastname">名:</label> <input type="text" name="lastname"
-				value="${not empty lastname ? lastname : ''}" required>
+				value="${user.lastName }" required>
 		</div><div class="address">
 			<label for="address">住所:</label> <input type="text" name="address"
-				value="${not empty address ? address : ''}" required>
+				value="${user.address }" required>
 		</div>
 		<div class="mail">
 			<label for="mail">メールアドレス:</label> <input type="email" name="mail"
-				value="${not empty mail ? mail : ''}" required>
+				value="${user.mailAddress }" required>
 		</div>
 		<input type="submit" value="確認">
 		<input type="reset" value="リセット">
-	</form>
-
+</form>
 </body>
 </html>
