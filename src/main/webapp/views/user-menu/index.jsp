@@ -8,10 +8,10 @@
 </head>
 <body>
 <h1>ようこそ${user.id }!</h1>
-<form action="another.jsp" method="get">
+<form action="fix/user.jsp" method="get">
   <button type="submit">修正</button>
 </form>
-<form action="" method="get">
+<form action="delete" method="get">
   <button type="submit">削除</button>
 </form>
 <form action="../logout" method="get">
