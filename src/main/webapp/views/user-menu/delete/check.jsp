@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>会員情報削除画面</h1>
-<a href="check.jsp">削除</a>
-<a href="../">戻る</a>
+<h1>本当に削除しますか？</h1>
+	<a href="check">はい</a>
+<a href="../">いいえ</a>
 </body>
 </html>

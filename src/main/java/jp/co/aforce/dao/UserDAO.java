@@ -91,4 +91,23 @@ public class UserDAO extends DAO {
 			e.printStackTrace();
 		}
 	}
+
+	public void setFixUser(User user) {
+		
+		
+	}
+
+	public void deleteUser(User user) {
+		try{Connection con = getConnection();
+		String sql = "delete from users where member_id=?";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, user.getId());
+		int rs = st.executeUpdate();
+		System.out.println(rs);
+		con.close();
+		st.close();
+	}catch (Exception e) {
+		e.printStackTrace();
+	}
+}
 }
