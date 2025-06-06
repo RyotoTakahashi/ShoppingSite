@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>会員情報編集画面</h1>
-<form action="/ShoppingSite/views/user-menu/fix" method="post">
+<form action="/ShoppingSite/views/user-menu/fix/fixCheck" method="post">
 		<div class="firstname">
 			<label for="firstname">姓:</label> <input type="text" name="firstname"
 				value="${user.firstName }" required>

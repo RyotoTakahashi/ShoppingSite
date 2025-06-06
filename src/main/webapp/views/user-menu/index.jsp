@@ -11,7 +11,7 @@
 <form action="fix/user.jsp" method="get">
   <button type="submit">修正</button>
 </form>
-<form action="delete" method="get">
+<form action="delete/user.jsp" method="get">
   <button type="submit">削除</button>
 </form>
 <form action="../logout" method="get">
