@@ -6,13 +6,13 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 public class DAO {
-	static DataSource ds;
+    static DataSource ds;
 
-	public Connection getConnection() throws Exception {
-		if (ds==null) {
-			InitialContext ic=new InitialContext();
-			ds=(DataSource)ic.lookup("java:/comp/env/jdbc/shoppingsite_takahashi");
-		}
-		return ds.getConnection();
-	}
+    public Connection getConnection() throws Exception {
+        if (ds == null) {
+            InitialContext ic = new InitialContext();
+            ds = (DataSource) ic.lookup("java:/comp/env/jdbc/shoppingsite_takahashi");
+        }
+        return ds.getConnection();
+    }
 }
