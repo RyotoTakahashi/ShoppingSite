@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", sans-serif;
+    background: url("../img/guestjoin.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.history-container {
+    max-width: 700px;
+    margin: 80px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    color: #333;
+}
+
+.history-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.order-card {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.order-card p {
+    margin: 8px 0;
+    font-size: 16px;
+    color: #222;
+}
+
+.order-card a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #0077cc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.order-card a:hover {
+    text-decoration: underline;
+}

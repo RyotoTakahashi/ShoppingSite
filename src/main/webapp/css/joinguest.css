@@ -1,0 +1,153 @@
+/* 背景＋ぼかし固定 */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+  background: url("../img/guestjoin.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ブラー固定レイヤー */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  z-index: 0;
+}
+
+/* ガラスボックス：画面中央固定＋スクロール可 */
+.container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 500px;
+  height: 100vh;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.08);
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 3rem 2rem;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+/* スクロールバー非表示（Chrome/Edge） */
+.container::-webkit-scrollbar {
+  display: none;
+}
+.container {
+  scrollbar-width: none; /* Firefox */
+}
+
+/* 見出し */
+h2 {
+  font-size: 2rem;
+  color: #e0e0e0;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* 入力欄等 */
+.form-group {
+  margin-bottom: 1.6rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* 性別だけ特別対応 */
+.form-group.gender .gender {
+  margin-bottom: 0.4rem;
+}
+
+.form-group.gender .radio-options {
+  display: flex;
+  gap: 2rem;
+  margin-top: 0.4rem;
+}
+
+.form-group.gender .radio-options label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #fff;
+  font-weight: normal;
+  margin-bottom: 0;
+}
+
+/* ラジオボタン */
+input[type="radio"] {
+  width: auto;
+}
+
+/* 共通のinput */
+input {
+  width: 100%;
+  padding: 0.6rem 0;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  font-size: 1rem;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+input:focus {
+  outline: none;
+  border-bottom: 2px solid #99cc99;
+}
+
+/* ボタン統一 */
+.btn {
+  display: inline-block;
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 8px;
+  box-sizing: border-box;
+  text-decoration: none;
+  line-height: 1.2;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+/* ボタンの色指定 */
+button.btn {
+  background-color: #3a6b5c;
+  color: white;
+}
+button.btn:hover {
+  background-color: #2f5449;
+}
+
+/* ログインボタン */
+.login-link {
+  margin-top: 2rem;
+}
+.login-link a.btn {
+  background-color: #ffffff;
+  color: #3a6b5c;
+  border: 2px solid #3a6b5c;
+}
+.login-link a.btn:hover {
+  background-color: #3a6b5c;
+  color: white;
+}

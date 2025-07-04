@@ -1,0 +1,126 @@
+/* 背景＋ぼかし固定 */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+  background: url("../img/guestjoin.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  overflow-y: auto;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 520px;
+  min-height: 100vh;
+  background: rgba(255, 255, 255, 0.08);
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 3rem 2rem;
+  box-sizing: border-box;
+  color: #fff;
+  border-radius: 0; /* 縦全体なので丸めない */
+  z-index: 1;
+}
+
+/* スクロールバー非表示 */
+.container::-webkit-scrollbar {
+  display: none;
+}
+.container {
+  scrollbar-width: none;
+}
+
+/* 見出し */
+h2 {
+  font-size: 1.8rem;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+/* 確認テーブル */
+.confirm-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+  color: #fff;
+}
+.confirm-table th,
+.confirm-table td {
+  text-align: left;
+  padding: 0.6rem 0;
+}
+.confirm-table th {
+  width: 8em;
+  font-weight: bold;
+}
+.confirm-table td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.disabled-text {
+  color: #ccc;
+  font-style: italic;
+}
+
+/* ボタングループ */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.button-group form {
+  margin: 0;
+}
+
+/* ボタン共通スタイル */
+.btn {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* 登録ボタン */
+.btn.confirm {
+  background-color: #3a6b5c;
+  color: white;
+}
+.btn.confirm:hover {
+  background-color: #2f5449;
+}
+
+/* 修正ボタン（反転色） */
+.btn.back {
+  background-color: #fff;
+  color: #3a6b5c;
+  border: 2px solid #3a6b5c;
+}
+.btn.back:hover {
+  background-color: #3a6b5c;
+  color: white;
+}

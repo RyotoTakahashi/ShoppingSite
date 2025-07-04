@@ -1,0 +1,122 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+  background: url("../img/guestlogin.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  z-index: 0;
+}
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 500px;
+  height: 100vh;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.08);
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 3rem 2rem;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+.container {
+  scrollbar-width: none;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #e0e0e0;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.6rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+input {
+  width: 100%;
+  padding: 0.6rem 0;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  font-size: 1rem;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+input:focus {
+  outline: none;
+  border-bottom: 2px solid #99cc99;
+}
+
+/* ボタン共通 */
+.btn {
+  display: inline-block;
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 8px;
+  box-sizing: border-box;
+  text-decoration: none;
+  line-height: 1.2;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+/* 緑地白文字（ログインボタン） */
+button.btn {
+  background-color: #3a6b5c;
+  color: white;
+}
+button.btn:hover {
+  background-color: #2f5449;
+}
+
+/* 白地緑枠（新規会員登録リンク） */
+a.btn {
+  background-color: #ffffff;
+  color: #3a6b5c;
+  border: 2px solid #3a6b5c;
+}
+a.btn:hover {
+  background-color: #3a6b5c;
+  color: white;
+}
+
+.register-link {
+  margin-top: 2rem;
+}

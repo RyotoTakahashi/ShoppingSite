@@ -1,6 +1,9 @@
 package jp.co.aforce.api;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.nio.file.Paths;
 import java.util.Base64;
@@ -28,28 +31,45 @@ public class GmailApiUtil {
 
     private static final String APPLICATION_NAME = "ShoppingSite";
     private static final JsonFactory JSON_FACTORY = GsonFactory.getDefaultInstance();
-    private static final String TOKENS_DIRECTORY_PATH = "tokens";
-
+	private static final String TOKENS_DIRECTORY_PATH = System.getenv("TOKENS_DIRECTORY_PATH");
+    
     private static final java.util.List<String> SCOPES = Collections.singletonList("https://www.googleapis.com/auth/gmail.send");
-    private static final String CREDENTIALS_FILE_PATH = "/credentials.json";
-
+    private static final String CREDENTIALS_FILE_PATH = System.getenv("GOOGLE_CREDENTIALS_PATH");
+    
+    
     public static Credential getCredentials() throws Exception {
-        var in = GmailApiUtil.class.getResourceAsStream(CREDENTIALS_FILE_PATH);
-        if (in == null) {
-            throw new Exception("credentials.json not found");
+        String credPath = CREDENTIALS_FILE_PATH;
+        System.out.println("DEBUG: loading credentials from " + credPath);
+        File f = new File(credPath);
+        System.out.println("DEBUG ▶ credPath  = [" + credPath + "]");
+        System.out.println("DEBUG ▶ exists    = " + f.exists());
+        System.out.println("DEBUG ▶ isFile    = " + f.isFile());
+        System.out.println("DEBUG ▶ absPath   = " + f.getAbsolutePath());
+        System.out.println("DEBUG ▶ canRead   = " + f.canRead());
+        String tokenDir = System.getenv("TOKENS_DIRECTORY_PATH");
+        System.out.println("DEBUG ▶ tokens dir = " + tokenDir);
+        File tf = new File(tokenDir);
+        System.out.println("DEBUG ▶ exists = " + tf.exists() + ", canRead = " + tf.canRead());
+        try (FileInputStream in = new FileInputStream(credPath)) {
+            var clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
+            var flow = new GoogleAuthorizationCodeFlow.Builder(
+                    GoogleNetHttpTransport.newTrustedTransport(),
+                    JSON_FACTORY,
+                    clientSecrets,
+                    SCOPES
+            )
+            .setDataStoreFactory(new FileDataStoreFactory(Paths.get(TOKENS_DIRECTORY_PATH).toFile()))
+            .setAccessType("offline")
+            .build();
+            Credential credential = flow.loadCredential("user");
+            if (credential != null && credential.getRefreshToken() != null) {
+                return credential;
+            }
+            var receiver = new LocalServerReceiver.Builder().setPort(8888).build();
+            return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
+        } catch (FileNotFoundException e) {
+            throw new Exception("credentials.json not found at " + credPath, e);
         }
-        var clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
-        var flow = new GoogleAuthorizationCodeFlow.Builder(
-                GoogleNetHttpTransport.newTrustedTransport(),
-                JSON_FACTORY,
-                clientSecrets,
-                SCOPES
-        ).setDataStoreFactory(new FileDataStoreFactory(Paths.get(TOKENS_DIRECTORY_PATH).toFile()))
-         .setAccessType("offline")
-         .build();
-
-        var receiver = new LocalServerReceiver.Builder().setPort(8888).build();
-        return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
     }
 
     public static void sendEmail(String to, String subject, String body) throws Exception {

@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', 'Noto Sans JP', sans-serif;
+  background: url('../img/32689269_m.jpg') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+  color: #fff;
+}
+
+/* 半透明＆ぼかしオーバーレイ */
+.overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* すりガラス風のメインボックス */
+.glass-box {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 2.5em 3em;
+  max-width: 480px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.icon {
+  font-size: 3em;
+  color: #81c784;
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  font-size: 1.8em;
+  margin-bottom: 0.5em;
+  color: #fff;
+}
+
+p {
+  font-size: 1em;
+  margin: 0.5em 0;
+  color: #eee;
+}
+
+.actions {
+  margin-top: 2em;
+}
+
+.button {
+  display: inline-block;
+  margin: 0.5em;
+  padding: 0.7em 1.5em;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #388e3c;
+}
+
+.button.secondary {
+  background-color: #555;
+}
+
+.button.secondary:hover {
+  background-color: #333;
+}

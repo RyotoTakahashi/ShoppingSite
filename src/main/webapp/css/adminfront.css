@@ -1,0 +1,47 @@
+@charset "UTF-8";body {
+    margin: 0;
+    padding: 0;
+    background-color: #0d1117; /* 黒背景 */
+    color: #000;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.admin-menu {
+    background-color: #ffffff; /* 白背景 */
+    border: 3px solid #0077cc; /* 青い枠 */
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+    width: 320px;
+    box-shadow: 0 0 10px rgba(0, 119, 204, 0.3);
+}
+
+.admin-menu h1 {
+    margin-bottom: 30px;
+    font-size: 1.6rem;
+    color: #000;
+}
+
+.menu-buttons form {
+    margin-bottom: 20px;
+}
+
+.menu-buttons button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.menu-buttons button:hover {
+    background-color: #005fa3;
+}

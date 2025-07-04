@@ -4,16 +4,20 @@ import java.sql.Timestamp;
 
 public class ShippingAddressBean {
 	private long address_id;
-	private long user_id;
 	private String postal_code;
-	private String prefecture;
-	private String city;
-	private String street;
+	private String address;
 	private String building;
+	private Long user_id;
 	private boolean is_default;
 	private Timestamp created_at;
 
 	public ShippingAddressBean() {
+	}
+	public ShippingAddressBean(String postal, String address, String building) {
+		this.postal_code= postal;
+		this.address = address;
+		this.building = building;
+		
 	}
 
 	public long getAddress_id() {
@@ -24,14 +28,6 @@ public class ShippingAddressBean {
 		this.address_id = address_id;
 	}
 
-	public long getUser_id() {
-		return user_id;
-	}
-
-	public void setUser_id(long user_id) {
-		this.user_id = user_id;
-	}
-
 	public String getPostal_code() {
 		return postal_code;
 	}
@@ -40,29 +36,15 @@ public class ShippingAddressBean {
 		this.postal_code = postal_code;
 	}
 
-	public String getPrefecture() {
-		return prefecture;
+
+	public String getAddress() {
+		return address;
 	}
 
-	public void setPrefecture(String prefecture) {
-		this.prefecture = prefecture;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getStreet() {
-		return street;
-	}
-
-	public void setStreet(String street) {
-		this.street = street;
-	}
 
 	public String getBuilding() {
 		return building;
@@ -86,5 +68,11 @@ public class ShippingAddressBean {
 
 	public void setCreated_at(Timestamp created_at) {
 		this.created_at = created_at;
+	}
+	public Long getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(Long user_id) {
+		this.user_id = user_id;
 	}
 }

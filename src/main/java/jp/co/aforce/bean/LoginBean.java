@@ -1,11 +1,20 @@
 package jp.co.aforce.bean;
 
 public class LoginBean {
+	private String UserName;
     private long user_id;
     private String verifier;
     private String salt;
+	public LoginBean() {}
+    public String getUserName() {
+		return UserName;
+	}
 
-    public LoginBean() {}
+	public void setUserName(String userName) {
+		UserName = userName;
+	}
+
+
 
     public long getUser_id() { return user_id; }
     public void setUser_id(long user_id) { this.user_id = user_id; }

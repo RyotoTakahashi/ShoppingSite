@@ -1,16 +1,16 @@
 package jp.co.aforce.bean;
 
-import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 public class OrderBean {
     private long order_id;
     private long user_id;
     private long shipping_address_id;
-    private String order_status;
-    private BigDecimal total_amount;
+    private int total_amount;
     private String order_token;
+    private String order_number;
     private String payment_method;
+    private String guest_id;
     private Timestamp created_at;
     private Timestamp updated_at;
 
@@ -25,13 +25,18 @@ public class OrderBean {
     public long getShipping_address_id() { return shipping_address_id; }
     public void setShipping_address_id(long shipping_address_id) { this.shipping_address_id = shipping_address_id; }
 
-    public String getOrder_status() { return order_status; }
-    public void setOrder_status(String order_status) { this.order_status = order_status; }
+    public int getTotal_amount() { return total_amount; }
+    public void setTotal_amount(int total_price) { this.total_amount = total_price; }
 
-    public BigDecimal getTotal_amount() { return total_amount; }
-    public void setTotal_amount(BigDecimal total_amount) { this.total_amount = total_amount; }
+    public String getOrder_number() {
+		return order_number;
+	}
 
-    public String getOrder_token() { return order_token; }
+	public void setOrder_number(String order_number) {
+		this.order_number = order_number;
+	}
+
+	public String getOrder_token() { return order_token; }
     public void setOrder_token(String order_token) { this.order_token = order_token; }
 
     public String getPayment_method() { return payment_method; }
@@ -42,4 +47,12 @@ public class OrderBean {
 
     public Timestamp getUpdated_at() { return updated_at; }
     public void setUpdated_at(Timestamp updated_at) { this.updated_at = updated_at; }
+
+	public String getGuest_id() {
+		return guest_id;
+	}
+
+	public void setGuest_id(String guest_id) {
+		this.guest_id = guest_id;
+	}
 }

@@ -1,0 +1,82 @@
+/* 背景スタイル */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', 'Noto Sans JP', sans-serif;
+    background: url("../img/errorpage.jpg") no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    color: #fff;
+}
+
+/* 背景ぼかし＋暗めオーバーレイ */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 32, 0.6);
+    backdrop-filter: blur(2px);
+    z-index: 0;
+}
+
+/* 左上の戻るボタン */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.9em;
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: 0.5em 1em;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+.back-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* コンテナ全体 */
+.error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+/* メッセージボックス */
+.error-box {
+    background-color: rgba(255, 255, 255, 0.12);
+    padding: 2.5em 3em;
+    border-radius: 16px;
+    border-left: 4px solid #4caf50;  /* ここを #4caf50 にすると成功風にできる */
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 480px;
+    width: 90%;
+}
+
+/* 見出し（"Sorry"など） */
+.error-box h1 {
+    font-size: 1.8em;
+    margin-bottom: 1em;
+    color: #fff;
+}
+
+/* 補足メッセージ */
+.error-box p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #eee;
+}
+
+/* 補助ボタンを内容内に複数設置する場合 */
+.error-box .back-button {
+    position: static;
+    margin: 0.5em;
+    font-size: 0.9em;
+    display: inline-block;
+}

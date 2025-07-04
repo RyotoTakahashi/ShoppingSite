@@ -1,13 +1,12 @@
 package jp.co.aforce.bean;
 
-import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 public class ProductBean {
     private long product_id;
     private String name;
     private String description;
-    private BigDecimal price;
+    private int price;
     private int stock_quantity;
     private Timestamp created_at;
     private Timestamp updated_at;
@@ -23,8 +22,8 @@ public class ProductBean {
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
 
-    public BigDecimal getPrice() { return price; }
-    public void setPrice(BigDecimal price) { this.price = price; }
+    public int getPrice() { return price; }
+    public void setPrice(int i) { this.price = i; }
 
     public int getStock_quantity() { return stock_quantity; }
     public void setStock_quantity(int stock_quantity) { this.stock_quantity = stock_quantity; }
